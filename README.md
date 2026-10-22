@@ -2,7 +2,7 @@
 
 PantryPilot is a self-hosted **MCP server** (spec **2025-11-25**, **Streamable HTTP**) for the
 **Alexa+ track** of the Build, Ship, Shape Amazon Developer Hackathon. Pure **Python 3**, standard
-library only: no Node.js, nothing to `pip install`.
+library only.
 
 It gives Alexa+ a memory that lasts between sessions: what is in your pantry, what expires soon,
 your household's diet and dislikes. It turns that into dinner suggestions and a shopping list.
