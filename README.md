@@ -6,7 +6,6 @@ library only.
 
 It gives Alexa+ a memory that lasts between sessions: what is in your pantry, what expires soon,
 your household's diet and dislikes. It turns that into dinner suggestions and a shopping list.
-Optional **Amazon Bedrock** integration writes the spoken meal plan (AWS Builder mini challenge).
 
 ## Tools
 
