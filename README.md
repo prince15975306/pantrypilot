@@ -25,7 +25,7 @@ State lives in `data/state.json`, so it persists across sessions.
 
 ```bash
 git clone https://github.com/prince15975306/pantrypilot
-cd pantrypilot-mcp
+cd pantrypilot
 python -m unittest discover -s tests -v    # tests
 python -m pantrypilot                      # server on http://localhost:3000/mcp
 ```
