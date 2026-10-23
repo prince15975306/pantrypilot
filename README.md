@@ -11,7 +11,7 @@ what is in your pantry, what expires soon, and your household's diet and dislike
 suggestions and a shopping list. Pure **Python 3, standard library only**: nothing to install.
 
 > **Track:** Alexa+ (self-hosted MCP server) · **Mini challenge:** Open Source (new MIT-licensed repo)
-> **Demo video:** _add your YouTube/Vimeo link here_
+> **Demo video:** https://youtu.be/rIe9mFX6f8M
 
 ![PantryPilot dashboard](docs/screenshot.png)
 
