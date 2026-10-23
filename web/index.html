@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PantryPilot | Your Smart Kitchen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="#">
+            <span class="brand-icon">✳</span>
+            PantryPilot
+        </a>
+        <span class="status"><span class="status-dot"></span> Kitchen assistant</span>
+    </header>
+
+    <main class="container">
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">YOUR KITCHEN, SIMPLIFIED</p>
+                <h1>Good food starts<br>with what you have.</h1>
+                <p class="subtitle">Keep track of your pantry, save ingredients, and find your next meal.</p>
+            </div>
+            <div class="welcome-icon" aria-hidden="true">🥑</div>
+        </section>
+
+        <section class="stats">
+            <article class="stat-card">
+                <span class="stat-label">Pantry items</span>
+                <strong id="pantry-count">—</strong>
+                <span class="stat-note">Items in your kitchen</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Expiring soon</span>
+                <strong id="expiry-count">—</strong>
+                <span class="stat-note">Check these ingredients</span>
+            </article>
+            <article class="stat-card">
+                <span class="stat-label">Diet preference</span>
+                <strong id="diet-value">—</strong>
+                <span class="stat-note">Your saved preference</span>
+            </article>
+        </section>
+
+        <div id="message" class="message" role="status" aria-live="polite">
+            Loading your kitchen...
+        </div>
+
+        <section class="dashboard-grid">
+            <article class="panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">INVENTORY</p>
+                        <h2>Your pantry</h2>
+                    </div>
+                    <button id="refresh-pantry" class="button button-light">Refresh</button>
+                </div>
+
+                <form id="add-item-form" class="form-stack">
+                    <label for="item-name">Ingredient name</label>
+                    <input id="item-name" name="name" placeholder="e.g. Rice" required>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="item-quantity">Quantity</label>
+                            <input id="item-quantity" name="quantity" type="number" min="0.01" step="any" value="1" required>
+                        </div>
+                        <div>
+                            <label for="item-unit">Unit</label>
+                            <select id="item-unit" name="unit">
+                                <option value="pieces">Pieces</option>
+                                <option value="kg">Kilograms</option>
+                                <option value="g">Grams</option>
+                                <option value="litres">Litres</option>
+                                <option value="ml">Millilitres</option>
+                                <option value="packets">Packets</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <label for="item-expiry">Expiry date (optional)</label>
+                    <input id="item-expiry" name="expires_on" type="date">
+
+                    <button class="button button-primary" type="submit">+ Add ingredient</button>
+                </form>
+
+                <div class="list-heading">
+                    <h3>Stored ingredients</h3>
+                </div>
+                <div id="pantry-list" class="item-list">
+                    <p class="empty-state">Your ingredients will appear here.</p>
+                </div>
+            </article>
+
+            <div class="right-column">
+                <article class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">WASTE LESS</p>
+                            <h2>Expiry watch</h2>
+                        </div>
+                        <span class="panel-emoji">⏳</span>
+                    </div>
+                    <p class="panel-description">Find ingredients that need your attention.</p>
+                    <button id="check-expiry" class="button button-light button-full">Check expiring items</button>
+                    <div id="expiry-list" class="item-list">
+                        <p class="empty-state">Check your pantry to see upcoming expiries.</p>
+                    </div>
+                </article>
+
+                <article class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">WHAT'S COOKING?</p>
+                            <h2>Meal ideas</h2>
+                        </div>
+                        <span class="panel-emoji">🍲</span>
+                    </div>
+                    <p class="panel-description">Discover meals based on your ingredients and preferences.</p>
+                    <button id="suggest-meals" class="button button-primary button-full">Suggest meals</button>
+                    <div id="meal-list" class="item-list">
+                        <p class="empty-state">Your next favourite meal could be here.</p>
+                    </div>
+                </article>
+
+                <article class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">SMART SHOPPING</p>
+                            <h2>Shopping list</h2>
+                        </div>
+                        <span class="panel-emoji">🛒</span>
+                    </div>
+                    <p class="panel-description">Build a shopping list from your pantry needs.</p>
+                    <button id="build-shopping-list" class="button button-light button-full">Build my list</button>
+                    <div id="shopping-list" class="item-list">
+                        <p class="empty-state">Your shopping list will appear here.</p>
+                    </div>
+                </article>
+
+                <article class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">PERSONALISE</p>
+                            <h2>Food preference</h2>
+                        </div>
+                        <span class="panel-emoji">🌱</span>
+                    </div>
+                    <form id="preference-form" class="form-stack">
+                        <label for="diet">Diet preference</label>
+                        <select id="diet" name="diet">
+                            <option value="">Not set</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="eggetarian">Eggetarian</option>
+                            <option value="non-vegetarian">Non-vegetarian</option>
+                            <option value="any">No preference</option>
+                        </select>
+                        <label for="dislikes">Ingredients to avoid (optional)</label>
+                        <input id="dislikes" name="dislikes" placeholder="e.g. mushrooms, peanuts">
+                        <button class="button button-light" type="submit">Save preference</button>
+                    </form>
+                </article>
+            </div>
+        </section>
+
+        <footer>
+            <span>PantryPilot</span>
+            <span>Less waste. Better meals. Smarter shopping.</span>
+        </footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
