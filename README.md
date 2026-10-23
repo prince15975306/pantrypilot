@@ -67,7 +67,7 @@ python -m pantrypilot          # then open http://localhost:3000/
 
 ```bash
 git clone https://github.com/prince15975306/pantrypilot
-cd YOUR-REPO
+cd pantrypilot
 python -m unittest discover -s tests -v    # run the tests
 python -m pantrypilot                      # dashboard http://localhost:3000/  MCP http://localhost:3000/mcp
 ```
