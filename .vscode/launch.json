@@ -1,7 +1,0 @@
-{
-  "version": "0.2.0",
-  "configurations": [
-    { "name": "Run PantryPilot server", "type": "debugpy", "request": "launch", "module": "pantrypilot" },
-    { "name": "Run tests", "type": "debugpy", "request": "launch", "module": "unittest", "args": ["discover", "-s", "tests", "-v"] }
-  ]
-}
